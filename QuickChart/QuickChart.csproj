@@ -3,6 +3,18 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Ian Webster</Authors>
+    <Copyright>Ian Webster 2020</Copyright>
+    <PackageLicenseUrl>https://github.com/typpo/quickchart-csharp/blob/main/LICENSE</PackageLicenseUrl>
+    <Owners>QuickChart</Owners>
+    <PackageProjectUrl>https://github.com/typpo/quickchart-csharp</PackageProjectUrl>
+    <Summary>Client library for the QuickChart Chart API, used to generate chart images.</Summary>
+    <PackageTags>chart image, chart api, chart, charts</PackageTags>
+    <Title>QuickChart</Title>
+    <Description>Client library for the QuickChart Chart API, used to generate chart images.</Description>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>QuickChart</PackageId>
   </PropertyGroup>
 
 </Project>

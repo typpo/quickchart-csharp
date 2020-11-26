@@ -7,7 +7,7 @@ namespace QuickChartExamples
     {
         static void Main(string[] args) {
             Console.WriteLine("Writing simple URL...");
-            QuickChart qc = new QuickChart();
+            Chart qc = new Chart();
 
             qc.Width = 500;
             qc.Height = 300;

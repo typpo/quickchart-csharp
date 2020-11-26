@@ -56,6 +56,10 @@ namespace QuickChart
             queryString.Add("devicePixelRatio", DevicePixelRatio.ToString());
             queryString.Add("bkg", BackgroundColor);
             queryString.Add("c", Config);
+            if (!string.IsNullOrEmpty(Key))
+            {
+                queryString.Add("key", Key);
+            }
 
             return $"{Protocol}://{Host}:{Port}/chart?{queryString}";
         }
@@ -67,6 +71,9 @@ namespace QuickChart
                 throw new NullReferenceException("You must set Config on the QuickChart object before generating a URL");
             }
 
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.IgnoreNullValues = true;
+
             String json = JsonSerializer.Serialize(new
             {
                 width = Width,
@@ -74,9 +81,8 @@ namespace QuickChart
                 backgroundColor = BackgroundColor,
                 devicePixelRatio = DevicePixelRatio,
                 chart = Config,
-            });
-
-            // TODO(ian): key
+                key = Key,
+            }, options);
 
             string url = $"{Protocol}://{Host}:{Port}/chart/create";
 
@@ -102,6 +108,9 @@ namespace QuickChart
                 throw new NullReferenceException("You must set Config on the QuickChart object before generating a URL");
             }
 
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.IgnoreNullValues = true;
+
             String json = JsonSerializer.Serialize(new
             {
                 width = Width,
@@ -109,9 +118,8 @@ namespace QuickChart
                 backgroundColor = BackgroundColor,
                 devicePixelRatio = DevicePixelRatio,
                 chart = Config,
-            });
-
-            // TODO(ian): key
+                key = Key,
+            }, options);
 
             string url = $"{Protocol}://{Host}:{Port}/chart";
 
