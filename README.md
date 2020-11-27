@@ -1,6 +1,6 @@
 # quickchart-csharp
 
-[![Build Status](https://travis-ci.com/typpo/quickchart-csharp.svg?branch=master)](https://travis-ci.com/typpo/quickchart-csharp)
+[![Build Status](https://travis-ci.com/typpo/quickchart-csharp.svg?branch=main)](https://travis-ci.com/typpo/quickchart-csharp)
 [![Nuget](http://img.shields.io/nuget/v/QuickChart.svg?style=flat)](https://www.nuget.org/packages/QuickChart)
 
 A C# client for the [quickchart.io](https://quickchart.io/) chart API.
