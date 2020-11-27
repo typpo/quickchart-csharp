@@ -16,7 +16,7 @@ or
 ```
 dotnet add package QuickChart --version 1.0.0
 ```
-
+---
 ## Usage
 
 This library provides a `QuickChart` namespace containing a `Chart` class.  Import and instantiate it.  Then set properties on it and specify a [Chart.js](https://chartjs.org) config:
@@ -56,6 +56,8 @@ The URLs will render an image of a chart:
 
 <img src="https://quickchart.io/chart?c=%7B%22type%22%3A+%22bar%22%2C+%22data%22%3A+%7B%22labels%22%3A+%5B%22Hello+world%22%2C+%22Test%22%5D%2C+%22datasets%22%3A+%5B%7B%22label%22%3A+%22Foo%22%2C+%22data%22%3A+%5B1%2C+2%5D%7D%5D%7D%7D&w=600&h=300&bkg=%23ffffff&devicePixelRatio=2.0&f=png" width="500" />
 
+---
+
 ### Customizing your chart
 
 You can set the following properties:
@@ -78,6 +80,8 @@ The device pixel ratio of the chart. This will multiply the number of pixels by 
 #### Key: string
 API key (not required)
 
+---
+
 ### Creating chart URLs
 
 There are a few ways to get a URL for your chart object.
@@ -91,6 +95,8 @@ Returns a URL that will display the chart image when loaded.
 Uses the quickchart.io web service to create a fixed-length chart URL that displays the chart image.  Returns a URL such as `https://quickchart.io/chart/render/f-a1d3e804-dfea-442c-88b0-9801b9808401`.
 
 Note that short URLs expire after a few days for users of the free service.  You can [subscribe](https://quickchart.io/pricing/) to keep them around longer.
+
+---
 
 #### Other methods
 
