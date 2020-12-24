@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Web;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -25,7 +23,7 @@ namespace QuickChart
         public string Key { get; set; }
         public string Config { get; set; }
 
-        public string Protocol { get; set; }
+        public string Scheme { get; set; }
         public string Host { get; set; }
         public int Port { get; set; }
 
@@ -38,7 +36,7 @@ namespace QuickChart
             DevicePixelRatio = 1.0;
             BackgroundColor = "transparent";
 
-            Protocol = "https";
+            Scheme = "https";
             Host = "quickchart.io";
             Port = 443;
         }
@@ -50,18 +48,19 @@ namespace QuickChart
                 throw new NullReferenceException("You must set Config on the QuickChart object before generating a URL");
             }
 
-            NameValueCollection queryString = HttpUtility.ParseQueryString(string.Empty);
-            queryString.Add("w", Width.ToString());
-            queryString.Add("h", Height.ToString());
-            queryString.Add("devicePixelRatio", DevicePixelRatio.ToString());
-            queryString.Add("bkg", BackgroundColor);
-            queryString.Add("c", Config);
+            StringBuilder builder = new StringBuilder();
+            builder.Append("w=").Append(Width.ToString());
+            builder.Append("&h=").Append(Height.ToString());
+
+            builder.Append("&devicePixelRatio=").Append(DevicePixelRatio.ToString());
+            builder.Append("&bkg=").Append(Uri.EscapeDataString(BackgroundColor));
+            builder.Append("&c=").Append(Uri.EscapeDataString(Config));
             if (!string.IsNullOrEmpty(Key))
             {
-                queryString.Add("key", Key);
+                builder.Append("&key=").Append(Uri.EscapeDataString(Key));
             }
 
-            return $"{Protocol}://{Host}:{Port}/chart?{queryString}";
+            return $"{Scheme}://{Host}:{Port}/chart?{builder}";
         }
 
         public string GetShortUrl()
@@ -84,7 +83,7 @@ namespace QuickChart
                 key = Key,
             }, options);
 
-            string url = $"{Protocol}://{Host}:{Port}/chart/create";
+            string url = $"{Scheme}://{Host}:{Port}/chart/create";
 
             HttpResponseMessage response = Client.PostAsync(
                 url,
@@ -121,7 +120,7 @@ namespace QuickChart
                 key = Key,
             }, options);
 
-            string url = $"{Protocol}://{Host}:{Port}/chart";
+            string url = $"{Scheme}://{Host}:{Port}/chart";
 
             HttpResponseMessage response = Client.PostAsync(
                 url,
