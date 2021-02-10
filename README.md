@@ -49,7 +49,7 @@ If you have a long or complicated chart, use `GetShortUrl()` to get a fixed-leng
 
 ```csharp
 Console.WriteLine(qc.GetShortUrl());
-# https://quickchart.io/chart/render/f-a1d3e804-dfea-442c-88b0-9801b9808401
+// https://quickchart.io/chart/render/f-a1d3e804-dfea-442c-88b0-9801b9808401
 ```
 
 The URLs will render an image of a chart:
