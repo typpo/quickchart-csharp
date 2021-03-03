@@ -7,7 +7,7 @@ A C# client for the [quickchart.io](https://quickchart.io/) chart API.
 
 ## Installation
 
-Use `QuickChart/QuickChart.cs` in this project, or install the `QuickChart` package:
+Use `QuickChart/QuickChart.cs` in this project, or install the `QuickChart` package from [NuGet](https://www.nuget.org/packages/QuickChart):
 
 ```
 PM> Install-Package QuickChart -Version 1.0.0
