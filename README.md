@@ -77,6 +77,9 @@ The background color of the chart. Any valid HTML color works. Defaults to #ffff
 #### DevicePixelRatio: double
 The device pixel ratio of the chart. This will multiply the number of pixels by the value. This is usually used for retina displays. Defaults to 1.0.
 
+#### Format: string
+The output format of the chart. Defaults to "png"
+
 #### Key: string
 API key (not required)
 
