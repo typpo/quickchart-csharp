@@ -19,6 +19,7 @@ namespace QuickChart
         public int Width { get; set; }
         public int Height { get; set; }
         public double DevicePixelRatio { get; set; }
+        public string Format {get;set;}
         public string BackgroundColor { get; set; }
         public string Key { get; set; }
         public string Config { get; set; }
@@ -34,6 +35,7 @@ namespace QuickChart
             Width = 500;
             Height = 300;
             DevicePixelRatio = 1.0;
+            Format = "png";
             BackgroundColor = "transparent";
 
             Scheme = "https";
@@ -53,6 +55,7 @@ namespace QuickChart
             builder.Append("&h=").Append(Height.ToString());
 
             builder.Append("&devicePixelRatio=").Append(DevicePixelRatio.ToString());
+            builder.Append("&f=").Append(Format);
             builder.Append("&bkg=").Append(Uri.EscapeDataString(BackgroundColor));
             builder.Append("&c=").Append(Uri.EscapeDataString(Config));
             if (!string.IsNullOrEmpty(Key))
@@ -79,6 +82,7 @@ namespace QuickChart
                 height = Height,
                 backgroundColor = BackgroundColor,
                 devicePixelRatio = DevicePixelRatio,
+                format = Format,
                 chart = Config,
                 key = Key,
             }, options);
@@ -116,6 +120,7 @@ namespace QuickChart
                 height = Height,
                 backgroundColor = BackgroundColor,
                 devicePixelRatio = DevicePixelRatio,
+                format = Format,
                 chart = Config,
                 key = Key,
             }, options);
