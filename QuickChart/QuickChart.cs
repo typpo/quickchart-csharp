@@ -19,7 +19,7 @@ namespace QuickChart
         public int Width { get; set; }
         public int Height { get; set; }
         public double DevicePixelRatio { get; set; }
-        public string Format {get;set;}
+        public string Format { get; set; }
         public string BackgroundColor { get; set; }
         public string Key { get; set; }
         public string Config { get; set; }
