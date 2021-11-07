@@ -10,11 +10,11 @@ A C# client for the [quickchart.io](https://quickchart.io/) chart API.
 Use `QuickChart/QuickChart.cs` in this project, or install the `QuickChart` package from [NuGet](https://www.nuget.org/packages/QuickChart):
 
 ```
-PM> Install-Package QuickChart -Version 2.0.0
+PM> Install-Package QuickChart -Version 2.1.0
 ```
 or
 ```
-dotnet add package QuickChart --version 2.0.0
+dotnet add package QuickChart --version 2.1.0
 ```
 ---
 ## Usage
@@ -77,6 +77,9 @@ The background color of the chart. Any valid HTML color works. Defaults to #ffff
 
 #### DevicePixelRatio: double
 The device pixel ratio of the chart. This will multiply the number of pixels by the value. This is usually used for retina displays. Defaults to 1.0.
+
+#### Format: string
+The output format of the chart. Defaults to "png"
 
 #### Version: string
 Chart.js version (not required)

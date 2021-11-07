@@ -19,8 +19,8 @@ namespace QuickChartTest
                 data: {
                     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
                     datasets: [{
-                    label: 'Users',
-                    data: [50, 60, 70, 180]
+                        label: 'Users',
+                        data: [50, 60, 70, 180]
                     }]
                 }
             }"
@@ -46,8 +46,8 @@ namespace QuickChartTest
                 data: {
                     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
                     datasets: [{
-                    label: 'Users',
-                    data: [50, 60, 70, 180]
+                        label: 'Users',
+                        data: [50, 60, 70, 180]
                     }]
                 }
             }"
@@ -61,20 +61,20 @@ namespace QuickChartTest
         }
 
         [Fact]
-        public void TestWithVersion()
+        public void TestWithFormat()
         {
             Chart qc = new Chart
             {
-                Version = "3.5.0",
                 Width = 500,
                 Height = 300,
+                Format = "svg",
                 Config = @"{
                 type: 'bar',
                 data: {
                     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
                     datasets: [{
-                    label: 'Users',
-                    data: [50, 60, 70, 180]
+                        label: 'Users',
+                        data: [50, 60, 70, 180]
                     }]
                 }
             }"
@@ -84,7 +84,34 @@ namespace QuickChartTest
             Assert.Contains("https://quickchart.io:443/chart", url);
             Assert.Contains("w=500", url);
             Assert.Contains("h=300", url);
-            Assert.Contains("v=3.5.0", url);
+            Assert.Contains("f=svg", url);
+        }
+
+        [Fact]
+        public void TestWithVersion()
+        {
+            Chart qc = new Chart
+            {
+                Width = 500,
+                Height = 300,
+                Format = "2.9.4",
+                Config = @"{
+                type: 'bar',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [{
+                        label: 'Users',
+                        data: [50, 60, 70, 180]
+                    }]
+                }
+            }"
+            };
+
+            string url = qc.GetUrl();
+            Assert.Contains("https://quickchart.io:443/chart", url);
+            Assert.Contains("w=500", url);
+            Assert.Contains("h=300", url);
+            Assert.Contains("v=2.9.4", url);
         }
     }
 }
