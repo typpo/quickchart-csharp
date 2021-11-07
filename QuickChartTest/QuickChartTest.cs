@@ -94,7 +94,7 @@ namespace QuickChartTest
             {
                 Width = 500,
                 Height = 300,
-                Format = "2.9.4",
+                Version = "2.9.4",
                 Config = @"{
                 type: 'bar',
                 data: {
