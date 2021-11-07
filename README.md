@@ -26,13 +26,14 @@ Chart qc = new Chart();
 
 qc.Width = 500;
 qc.Height = 300;
+qc.Version = "2.9.4";
 qc.Config = @"{
     type: 'bar',
     data: {
         labels: ['Q1', 'Q2', 'Q3', 'Q4'],
         datasets: [{
-        label: 'Users',
-        data: [50, 60, 70, 180]
+            label: 'Users',
+            data: [50, 60, 70, 180]
         }]
     }
 }";
@@ -76,6 +77,9 @@ The background color of the chart. Any valid HTML color works. Defaults to #ffff
 
 #### DevicePixelRatio: double
 The device pixel ratio of the chart. This will multiply the number of pixels by the value. This is usually used for retina displays. Defaults to 1.0.
+
+#### Version: string
+Chart.js version (not required)
 
 #### Key: string
 API key (not required)

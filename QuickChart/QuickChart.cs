@@ -22,6 +22,7 @@ namespace QuickChart
         public string Format {get;set;}
         public string BackgroundColor { get; set; }
         public string Key { get; set; }
+        public string Version { get; set; }
         public string Config { get; set; }
 
         public string Scheme { get; set; }
@@ -62,6 +63,10 @@ namespace QuickChart
             {
                 builder.Append("&key=").Append(Uri.EscapeDataString(Key));
             }
+            if (!string.IsNullOrEmpty(Version))
+            {
+                builder.Append("&v=").Append(Uri.EscapeDataString(Version));
+            }
 
             return $"{Scheme}://{Host}:{Port}/chart?{builder}";
         }
@@ -85,6 +90,7 @@ namespace QuickChart
                 format = Format,
                 chart = Config,
                 key = Key,
+                version = Version,
             }, options);
 
             string url = $"{Scheme}://{Host}:{Port}/chart/create";
@@ -123,6 +129,7 @@ namespace QuickChart
                 format = Format,
                 chart = Config,
                 key = Key,
+                version = Version,
             }, options);
 
             string url = $"{Scheme}://{Host}:{Port}/chart";

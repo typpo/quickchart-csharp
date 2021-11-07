@@ -59,5 +59,32 @@ namespace QuickChartTest
             Assert.Contains("h=300", url);
             Assert.Contains("key=abc123", url);
         }
+
+        [Fact]
+        public void TestWithVersion()
+        {
+            Chart qc = new Chart
+            {
+                Version = "3.5.0",
+                Width = 500,
+                Height = 300,
+                Config = @"{
+                type: 'bar',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [{
+                    label: 'Users',
+                    data: [50, 60, 70, 180]
+                    }]
+                }
+            }"
+            };
+
+            string url = qc.GetUrl();
+            Assert.Contains("https://quickchart.io:443/chart", url);
+            Assert.Contains("w=500", url);
+            Assert.Contains("h=300", url);
+            Assert.Contains("v=3.5.0", url);
+        }
     }
 }
