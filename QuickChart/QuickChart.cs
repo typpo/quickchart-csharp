@@ -31,7 +31,7 @@ namespace QuickChart
 
         private static readonly HttpClient Client = new HttpClient();
 
-        public Chart()
+        public Chart(string scheme = null, string host = null, int? port = null)
         {
             Width = 500;
             Height = 300;
@@ -39,9 +39,18 @@ namespace QuickChart
             Format = "png";
             BackgroundColor = "transparent";
 
-            Scheme = "https";
-            Host = "quickchart.io";
-            Port = 443;
+            if (scheme != null && host != null && port.HasValue)
+            {
+                Scheme = scheme;
+                Host = host;
+                Port = port.Value;
+            }
+            else
+            {
+                Scheme = "https";
+                Host = "quickchart.io";
+                Port = 443;
+            }
         }
 
         public string GetUrl()

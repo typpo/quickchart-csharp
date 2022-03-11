@@ -113,5 +113,32 @@ namespace QuickChartTest
             Assert.Contains("h=300", url);
             Assert.Contains("v=2.9.4", url);
         }
+
+        [Fact]
+        public void TestWithSelfHostingQuickChart()
+        {
+            var scheme = "http";
+            var host = "localhost";
+            var port = 47000;
+            Chart qc = new Chart(scheme, host, port);
+            qc.Width = 500;
+            qc.Height = 300;
+            qc.Config = @"{
+                type: 'bar',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [{
+                        label: 'Users',
+                        data: [50, 60, 70, 180]
+                    }]
+                }[]
+            }";
+
+            string url = qc.GetUrl();
+            Assert.Contains($"{scheme}://{host}:{port}/chart", url);
+            Assert.Contains("w=500", url);
+            Assert.Contains("h=300", url);
+            Assert.DoesNotContain("key=", url);
+        }
     }
 }
