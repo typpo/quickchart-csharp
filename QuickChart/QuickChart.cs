@@ -39,11 +39,33 @@ namespace QuickChart
             Format = "png";
             BackgroundColor = "transparent";
 
-            if (scheme != null && host != null && port.HasValue)
+            if (host != null)
             {
-                Scheme = scheme;
                 Host = host;
-                Port = port.Value;
+                if (scheme != null)
+                {
+                    Scheme = scheme;
+                    if (port.HasValue)
+                    {
+                        Port = port.Value;
+                    }
+                    else
+                    {
+                        if(scheme == "http")
+                        {
+                            Port = 80;
+                        }
+                        else
+                        {
+                            Port = 443;
+                        }
+                    }
+                }
+                else
+                {
+                    Scheme = "https";
+                    Port = 443;
+                }
             }
             else
             {
