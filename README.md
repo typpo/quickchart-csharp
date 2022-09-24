@@ -82,7 +82,7 @@ The device pixel ratio of the chart. This will multiply the number of pixels by 
 The output format of the chart. Defaults to "png"
 
 #### Version: string
-Chart.js version (not required)
+Chart.js version.  See [documentation](https://quickchart.io/documentation/#parameters) for supported versions.
 
 #### Key: string
 API key (not required)
