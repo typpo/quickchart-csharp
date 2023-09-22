@@ -133,7 +133,7 @@ namespace QuickChart
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Unsuccessful response from API");
+                throw new ApiException("Unsuccessful response from API", response);
             }
 
             string responseText = response.Content.ReadAsStringAsync().Result;
@@ -172,7 +172,7 @@ namespace QuickChart
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Unsuccessful response from API");
+                throw new ApiException("Unsuccessful response from API", response);
             }
 
             return response.Content.ReadAsByteArrayAsync().Result;
@@ -182,5 +182,13 @@ namespace QuickChart
         {
             File.WriteAllBytes(filePath, this.ToByteArray());
         }
+    }
+
+    public class ApiException : Exception
+    {
+        public ApiException(string message, HttpResponseMessage response) : base(message) 
+            => this.Response = response;
+
+        public HttpResponseMessage Response { get; private set; }
     }
 }
